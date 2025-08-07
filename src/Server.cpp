@@ -1,11 +1,40 @@
+#include <algorithm>
+#include <cctype>
 #include <iostream>
 #include <string>
+
+bool match_digit(const std::string &input) {
+    return std::any_of(
+        input.begin(),
+        input.end(),
+        [](char c){return std::isdigit(c);}
+    );
+}
+
+bool match_alpha(const std::string &input) {
+    return std::any_of(
+        input.begin(),
+        input.end(),
+        [](char c){return std::isalpha(c);}
+    );
+}
+
+bool match_alphanumeric (const std::string &input) {
+    return std::any_of(
+        input.begin(),
+        input.end(),
+        [](char c){return std::isalnum(c) || c == '_';}
+    );
+}
 
 bool match_pattern(const std::string& input_line, const std::string& pattern) {
     if (pattern.length() == 1) {
         return input_line.find(pattern) != std::string::npos;
-    } else if (pattern == "\\d") {
-        return input_line.find_first_of("0123456789") != std::string::npos;
+    }
+    if (pattern.compare("\\d") == 0) {
+        return match_digit(input_line);
+    } else if (pattern.compare("\\w") == 0) {
+        return match_alphanumeric(input_line) ;
     }
     else {
         throw std::runtime_error("Unhandled pattern " + pattern);
