@@ -27,22 +27,31 @@ bool match_alphanumeric (const std::string &input) {
     );
 }
 
-// positive character group
-bool match_group (const std::string &input, const std::string &pattern) {
+// match positive character group
+bool match_positive_group (const std::string &input, const std::string &pattern) {
     return input.find_first_of(pattern) != std::string::npos;
+}
+// match negative character group
+bool match_negative_group (const std::string &input, const std::string &pattern) {
+    return input.find_first_not_of(pattern) != std::string::npos;
 }
 
 bool match_pattern(const std::string& input_line, const std::string& pattern) {
     if (pattern.length() == 1) {
         return input_line.find(pattern) != std::string::npos;
     }
+    if (pattern.size() > 2 && pattern[0] == '[' && pattern[pattern.size()-1] == ']') {
+        if(pattern[1] == '^') {
+            return match_negative_group(input_line, pattern.substr(2, pattern.size()-3));
+        } else {
+            return  match_positive_group(input_line, pattern.substr(1, pattern.size()-2));
+        }
+    }
     if (pattern.compare("\\d") == 0) {
         return match_digit(input_line);
     } else if (pattern.compare("\\w") == 0) {
         return match_alphanumeric(input_line) ;
-    } else if (pattern.size() > 2 && pattern[0] == '[' && pattern[pattern.size()-1] == ']') {
-        return  match_group(input_line, pattern.substr(1,pattern.size()-2));
-    }
+    } 
     else {
         throw std::runtime_error("Unhandled pattern " + pattern);
     }
