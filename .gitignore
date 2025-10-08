@@ -47,3 +47,22 @@ _deps
 
 build/
 vcpkg_installed
+
+# cache
+.cache
+.cache/
+
+# vscode
+.vscode/
+
+# clangd
+.clangd
+
+# git_corrupted_backup
+.git_corrupted_backup
+.git_corrupted_backup/
+.git*_backup/
+
+# vcpkg
+vcpkg
+vcpkg/

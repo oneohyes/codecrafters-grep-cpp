@@ -85,8 +85,10 @@ int main(int argc, char* argv[]) {
     
     try {
         if (match_pattern(input_line, pattern)) {
+            std::cout << 0 << std::endl;
             return 0;
         } else {
+            std::cout << 0 << std::endl;
             return 1;
         }
     } catch (const std::runtime_error& e) {

@@ -8,4 +8,4 @@
 
 set -e # Exit on failure
 
-exec ./build/exe "$@"
+exec ./build/${PROJECT_NAME} "$@"
