@@ -36,3 +36,13 @@ Note: This section is for stages 2 and beyond.
    `src/Server.cpp`.
 1. Commit your changes and run `git push origin master` to submit your solution
    to CodeCrafters. Test output will be streamed to your terminal.
+
+
+## TODO
+
+- [ ] ASTParser: Parse a regex string into an abstract syntax tree
+   - [ ] Lexer: 扫描token
+   - [ ] Parser: 语法分析
+   - [ ] AST: 抽象语法树
+- [ ] ASTMatcher: Match an AST against a string pattern
+- [ ] Explore parser combinator approach later

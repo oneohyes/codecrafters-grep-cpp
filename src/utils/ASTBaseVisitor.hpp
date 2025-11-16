@@ -10,7 +10,7 @@ struct DigitNode;
 struct WordNode;
 struct WhitespaceNode;
 struct CharacterGroupNode;
-// struct NegativeCharacterGroupNode;
+struct NegativeCharacterGroupNode;
 struct StartAnchorNode;
 struct EndAnchorNode;
 struct ConcatNode;
@@ -28,7 +28,7 @@ public:
     virtual R visit(const WordNode& node) = 0;
     virtual R visit(const WhitespaceNode& node) = 0;
     virtual R visit(const CharacterGroupNode& node) = 0;
-    // virtual R visit(const NegativeCharacterGroupNode& node) = 0;
+    virtual R visit(const NegativeCharacterGroupNode& node) = 0;
     virtual R visit(const StartAnchorNode& node) = 0;
     virtual R visit(const EndAnchorNode& node) = 0;
     virtual R visit(const ConcatNode& node) = 0;

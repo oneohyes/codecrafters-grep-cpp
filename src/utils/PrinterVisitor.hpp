@@ -13,7 +13,7 @@ namespace Utils {
         void visit(const WordNode& node) override ;
         void visit(const WhitespaceNode& node) override ;
         void visit(const CharacterGroupNode& node) override ;
-        // void visit(const NegativeCharacterGroupNode& node) override ;
+        void visit(const NegativeCharacterGroupNode& node) override ;
         void visit(const StartAnchorNode& node) override ;
         void visit(const EndAnchorNode& node) override ;
         void visit(const ConcatNode& node) override ;

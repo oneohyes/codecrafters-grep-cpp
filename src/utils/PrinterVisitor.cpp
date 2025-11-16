@@ -37,19 +37,17 @@ namespace Utils {
     void PrinterVisitor::visit(const CharacterGroupNode& node) {
         indent();
         std::cout << "CharacterGroup: [";
-        if (node.isNegative) {
-            std::cout << "^";
-        }
         std::cout << node.chars;
         std::cout << "]";
         std::cout << std::endl;
     }
-    // void PrinterVisitor::visit(const NegativeCharacterGroupNode& node) {
-    //     indent();
-    //     std::cout << "NegativeCharacterGroup: [^";
-    //     node.child->accept(*this);
-    //     std::cout << "]";
-    // }
+    void PrinterVisitor::visit(const NegativeCharacterGroupNode& node) {
+        indent();
+        std::cout << "NegativeCharacterGroup: [^";
+        std::cout << node.chars;
+        std::cout << "]";
+        std::cout << std::endl;
+    }
     void PrinterVisitor::visit(const StartAnchorNode& ) {
         indent();
         std::cout << "StartAnchor: ^";
